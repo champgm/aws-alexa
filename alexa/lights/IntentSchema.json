@@ -1,0 +1,13 @@
+{
+  "intents": [
+    {
+      "intent": "lights",
+      "slots": [
+        {
+          "name": "Scene",
+          "type": "SCENES"
+        }
+      ]
+    }
+  ]
+}

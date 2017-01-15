@@ -1,0 +1,17 @@
+{
+  "intents": [
+    {
+     "intent": "Remind",
+      "slots": [
+        {
+          "name": "Name",
+          "type": "RECIPIENT"
+        },
+        {
+          "name": "Message",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    }
+  ]
+}
