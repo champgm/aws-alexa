@@ -1,0 +1,84 @@
+{
+  "name": "aws-alexa",
+  "version": "1.0.0",
+  "description": "trying to make alexa do stuff",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf transpile-nodejs && rm -rf coverage",
+    "transpile": "babel ./src -d ./transpile-nodejs",
+    "nyc": "nyc",
+    "jasmine": "jasmine",
+    "lint": "eslint ./src ./spec --ext .js --fix",
+    "lint-and-jasmine": "npm run lint && npm run jasmine",
+    "test": "npm run clean && npm run nyc npm run lint-and-jasmine",
+    "install": "npm run test && npm run transpile",
+    "deploy": "npm run install && serverless deploy",
+    "update": "npm run install && npm run deployfunction"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/champgm/aws-alexa.git"
+  },
+  "author": "macandna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/champgm/aws-alexa/issues"
+  },
+  "homepage": "https://github.com/champgm/aws-alexa#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^3.1.2",
+    "babel-register": "^6.18.0",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jasmine": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.5.3",
+    "jasmine-co": "^1.2.2",
+    "nyc": "^10.0.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.7.21",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.21.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-register": "^6.18.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "istanbul",
+      "syntax-async-functions",
+      "transform-regenerator"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**"
+    ],
+    "exclude": [
+      "transpile-nodejs/**",
+      "spec/**",
+      "node_modules/**"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "private": true
+}

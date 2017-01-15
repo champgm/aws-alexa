@@ -1,0 +1,13 @@
+# Elastic Beanstalk Files
+**/.elasticbeanstalk/*
+**/!.elasticbeanstalk/*.cfg.yml
+**/!.elasticbeanstalk/*.global.yml
+
+**/vendor
+**/.serverless
+**/composer.phar
+**/node_modules
+**/transpile*
+**/npm-debug.log
+**/.nyc_output
+**/coverage

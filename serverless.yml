@@ -1,0 +1,36 @@
+service: aws-alexa
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: production
+  region: us-west-2
+  profile: mine
+  cfLogs: true
+  memorySize: 128
+  timeout: 5
+
+package:
+ exclude:
+   - src/**
+   - spec/**
+   - package.json
+   - serverless.yml
+   - .eslintignore
+   - .eslintrc
+   - .npmignore
+   - .serverless/**
+   - node_modules/**
+   - coverage/**
+   - .nyc_output/**
+ include:
+   - transpile-nodejs/*
+   - node_modules/aws-sdk/**
+   - node_modules/babel-polyfill/**
+   - node_modules/bluebird/**
+
+functions:
+  aws-alexa:
+    handler: transpile-nodejs/lambda/hiturl/index.handler
+    events:
+      - sns: hiturl
