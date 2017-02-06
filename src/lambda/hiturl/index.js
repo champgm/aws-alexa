@@ -65,7 +65,8 @@ module.exports.handler = async function handler(event, context, callback) {
     response: {
       outputSpeech: {
         type: 'PlainText',
-        text: 'I pooped in my pants'
+        text: 'Done!'
+        // text: 'I pooped in my pants'
       },
       reprompt: {
         outputSpeech: {
